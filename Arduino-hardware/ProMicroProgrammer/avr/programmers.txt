@@ -1,0 +1,43 @@
+# Definition of 'ProMicro as ISP' programmer.
+# REG 12-29-18
+
+# This programmer is identical to the 'Arduino as ISP' programmer definition
+# except that it uses .protocol 'arduino' instead of 'stk500v1' which 
+# turns on DTR so the Promicro module sees the serial data input.
+# (stk500v1 does not turn on DTR)
+
+# Put this file in <arduino sketch folder>\hardware\ProMicroProgrammer\avr
+# You must also create a 'Boards.txt' file (can be empty) so that 
+# the Arduino IDE 'sees' this file/programmer. 
+
+promicroasisp.name=ProMicro Programmer
+promicroasisp.communication=serial
+promicroasisp.protocol=arduino
+promicroasisp.speed=19200
+promicroasisp.program.protocol=arduino
+#promicroasisp.program.protocol=stk500v1
+promicroasisp.program.speed=19200
+promicroasisp.program.tool=avrdude
+promicroasisp.program.extra_params=-P{serial.port} -b{program.speed}
+
+
+
+
+# The following are for reference only.... 
+
+#arduinoasisp.name=Arduino as ISP
+#arduinoasisp.communication=serial
+#arduinoasisp.protocol=stk500v1
+#arduinoasisp.speed=19200
+#arduinoasisp.program.protocol=stk500v1
+#arduinoasisp.program.speed=19200
+#arduinoasisp.program.tool=avrdude
+#arduinoasisp.program.extra_params=-P{serial.port} -b{program.speed}
+
+
+#arduinoisp.name=ArduinoISP (REG)
+#arduinoisp.protocol=arduinoisp
+#arduinoisp.program.tool=avrdude
+#arduinoisp.program.extra_params=
+
+
